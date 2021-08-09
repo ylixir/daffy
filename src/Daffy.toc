@@ -1,0 +1,5 @@
+## Interface: 90100
+## Title: Daffy
+## Notes: A notepad that speaks with a lisp.
+## Version: 0.0.1
+main.lua
