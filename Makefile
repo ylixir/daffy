@@ -1,5 +1,6 @@
-FNL = ./fennel-0.10.0/fennel
-TARGETS = dist/Daffy.toc dist/main.lua
+FENNEL_DIR = ./fennel-0.10.0
+FNL = $(FENNEL_DIR)/fennel
+TARGETS = dist/Daffy.toc dist/main.lua dist/fennel.lua
 INSTALL_DIR = $(WOW_DIR)/_retail_/Interface/Addons/Daffy/
 .PHONY: build install uninstall clean
 
@@ -18,8 +19,11 @@ clean:
 dist:
 	mkdir dist
 
-dist/Daffy.toc: dist src/Daffy.toc
-	cp src/Daffy.toc dist/Daffy.toc
+dist/Daffy.toc: src/Daffy.toc dist
+	cp $< $@
+
+dist/fennel.lua: $(FENNEL_DIR)/fennel.lua dist
+	cp $< $@
 
 dist/%.lua: src/%.fnl dist 
 	$(FNL) --compile $< > $@
