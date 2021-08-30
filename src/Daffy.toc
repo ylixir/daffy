@@ -2,5 +2,6 @@
 ## Title: Daffy
 ## Notes: A notepad that speaks with a lisp.
 ## Version: 0.0.1
+compat-5.1.lua
 fennel.lua
 main.lua
